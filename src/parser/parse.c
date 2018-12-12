@@ -15,6 +15,5 @@ t_maze	*parse(char *str)
 	maze->ants_count = get_ants_count(str, &i);
 	get_rooms(maze, str, &i);
 	get_cons(maze, str, &i);
-	debug_maze(maze);
 	return (maze);
 }
