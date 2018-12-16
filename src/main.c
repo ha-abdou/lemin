@@ -10,7 +10,8 @@ int		main(void)
 	maze = parse(str);
 	ft_putchar('\n');
 	debug_maze(maze);
-/*	index_rooms(maze);
+	index_rooms(maze);
+	/*
 	solve_maze(&maze);
 	free_mem(str, maze);*/
 	return (0);
