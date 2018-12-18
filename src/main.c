@@ -9,8 +9,17 @@ int		main(void)
 	str = read_maze();
 	maze = parse(str);
 	ft_putchar('\n');
-	debug_maze(maze);
 	index_rooms(maze);
+	
+	int	i = 0;
+	while (i < maze->rooms[maze->start_index].cons_len)
+	{
+		ft_putstr("\nroom: ");
+		print_room_name(maze, maze->rooms[maze->start_index].cons[i]);
+		ft_putstr(" ,distence: ");
+		ft_putnbr(maze->rooms[maze->rooms[maze->start_index].cons[i]].distence);
+		i++;
+	}
 	/*
 	solve_maze(&maze);
 	free_mem(str, maze);*/

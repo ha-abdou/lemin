@@ -2,6 +2,13 @@
 # define LEMIN_H
 # define DEBUG 1
 
+typedef struct	s_q
+{
+	size_t	*indexs;
+	size_t	len;
+	size_t	value;
+}				t_q;
+
 typedef struct	s_room
 {
 	char	*name;
@@ -38,8 +45,10 @@ void	get_cons(t_maze *maze, char *str, int *i);
 void	count_cons(t_maze *maze, char *str, int i);
 void	malloc_cons(t_maze *maze);
 void	make_cons(t_maze *maze, char *str, int i);
+void	index_rooms(t_maze *maze);
 
 void	debug_maze(t_maze *maze);
+void	print_room_name(t_maze *maze, int index);
 
 
 #endif

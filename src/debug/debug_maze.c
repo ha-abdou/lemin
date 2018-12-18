@@ -1,7 +1,7 @@
 #include "libft.h"
 #include "lemin.h"
 
-static void	print_room_name(t_maze *maze, int index)
+void	print_room_name(t_maze *maze, int index)
 {
 	int		i;
 

@@ -1,36 +1,59 @@
 #include "libft.h"
 #include "lemin.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-/*
-maze->maze->rooms[maze->end_index].cons ,
-		maze->rooms[maze->end_index].cons_len ,
-		1
-*/
-
-static void	index_it(int *q_1, int *q_2, int q_len, int value)
+static void	index_it(t_maze *maze, t_q q, t_q q_2)
 {
-	//
-}
+	size_t		j;
+	size_t		i;
+	t_room	target;
 
-void	index_rooms(t_maze *maze)
-{
-	int		*q_1;
-	int		*q_2;
-	int		i;
-	t_room	*target;
-
-	if (!(q_1 = (int *)malloc(sizeof(int) * maze->rooms_count)))
-		throw(0, "Error: can't malloc q_1\n");
-	if (!(q_2 = (int *)malloc(sizeof(int) * maze->rooms_count)))
-		throw(0, "Error: can't malloc q_2\n");
+	q_2.value = q.value + 1;
+	q_2.len = 0;
 	i = 0;
-	target = maze->rooms[maze->end_index];
-	while (i < target->cons_len)
+	//for all q
+	while (i < q.len)
 	{
-		q_1[i] = target->cons[i];
+		target = maze->rooms[q.indexs[i]];
+		//if non distence
+		if (target.distence == 0 && q.indexs[i] != maze->start_index && q.indexs[i] != maze->end_index)
+		{
+			j = 0;
+			//set value for all elm of q
+			maze->rooms[q.indexs[i]].distence = q.value;
+			//for cons of target
+			while (j < target.cons_len)
+			{
+				//add to new q
+				q_2.indexs[q_2.len] = target.cons[j];
+				q_2.len++;
+				j++;
+			}
+		}
 		i++;
 	}
-	index_it(q_1, q_2, i, 1);
-	free(q_1);
-	free(q_2);
+	if (q_2.len > 0)
+		index_it(maze, q_2, q);
+}
+
+void		index_rooms(t_maze *maze)
+{
+	t_q		q;
+	t_q		q_2;
+	t_room	target;
+
+	if (!(q.indexs = (size_t *)malloc(sizeof(size_t) * maze->rooms_count)))
+		throw(0, "Error: can't malloc q_1\n", 0);
+	if (!(q_2.indexs = (size_t *)malloc(sizeof(size_t) * maze->rooms_count)))
+		throw(0, "Error: can't malloc q_2\n", 0);
+	q.len = 0;
+	target = maze->rooms[maze->end_index];
+	while (q.len < target.cons_len)
+	{
+		q.indexs[q.len] = target.cons[q.len];
+		q.len++;
+	}
+	q.value = 1;
+	index_it(maze, q, q_2);
 }
