@@ -8,13 +8,13 @@ b 0 0
 c 0 0
 d 0 0
 e 0 0
+f 0 0
 start-a
 start-b
-a-c
-a-e
+a-d
 b-c
-b-d
-c-d
-c-e
+b-e
+c-f
+d-e
 e-end
-d-end
+f-end

@@ -1,5 +1,6 @@
 #include "libft.h"
 #include "lemin.h"
+#include <string.h>
 
 void	print_room_name(t_maze *maze, int index)
 {

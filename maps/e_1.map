@@ -8,13 +8,14 @@ b 0 0
 c 0 0
 d 0 0
 e 0 0
+f 0 0
+g 0 0
+h 0 0
 start-a
 start-b
-a-c
-a-e
-b-c
-b-d
 c-d
-c-e
-e-end
-d-end
+e-f
+f-g
+g-h
+g-end
+h-end

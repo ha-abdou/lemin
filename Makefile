@@ -18,7 +18,8 @@ src/parser/malloc_rooms.o\
 src/parser/malloc_cons.o\
 src/parser/count_cons.o\
 src/parser/make_cons.o\
-src/parser/index_rooms.o
+src/solver/solve_maze.o\
+src/solver/index_rooms.o
 
 $(NAME): $(OBJ) includes/lemin.h
 	@make -C libft/
