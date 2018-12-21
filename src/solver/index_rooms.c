@@ -47,5 +47,5 @@ void		index_rooms(t_maze *maze)
 	}
 	q.value = 1;
 	index_it(maze, q, q_2);
-	free_solver_q(&q, &q_2);
+//	free_solver_q(&q, &q_2);
 }

@@ -4,6 +4,13 @@
 # include <string.h>
 # include <stdio.h>
 
+typedef struct	s_path
+{
+	size_t	start_index;
+	size_t	len;
+	size_t	buff;
+	size_t	start_ant;
+}				t_path;
 typedef struct	s_q
 {
 	size_t	*indexs;
@@ -29,6 +36,7 @@ typedef struct	s_maze
 	size_t	ants_count;
 	size_t	start_index;
 	size_t	end_index;
+	size_t	paths_count;
 }				t_maze;
 /**
  * utility functions
@@ -62,7 +70,14 @@ void	free_solver_q(t_q *q, t_q *q_2);
 void	sort_solver_q(t_maze *maze, t_q *q);
 void	solve(t_maze *maze, t_q *q, t_q *q_2);
 /**
- * debug functions
+ * print solution
+ */
+void	print_solution(t_maze *maze);
+void	dispatsh_ants(t_maze *maze, t_path *paths);
+t_path	*get_paths(t_maze *maze);
+void	debug_paths(t_maze *maze, t_path *paths);
+/**
+ * debug functions functions
  */
 void	debug_maze(t_maze *maze);
 void	print_room_name(t_maze *maze, int index);

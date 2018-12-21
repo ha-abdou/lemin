@@ -22,7 +22,11 @@ src/solver/solve_maze.o\
 src/solver/index_rooms.o\
 src/solver/set_best_next.o\
 src/solver/create_free_q.o\
-src/solver/sort_q.o
+src/solver/sort_q.o\
+src/print_solution.o\
+src/print/dispatcher.o\
+src/print/get_paths.o\
+src/print/debug_paths.o
 
 $(NAME): $(OBJ) includes/lemin.h
 	@make -C libft/

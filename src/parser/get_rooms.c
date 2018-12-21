@@ -13,7 +13,6 @@ void	new_room(t_maze *maze, char *str, int *i)
 	maze->rooms[maze->rooms_count].distence = 0;
 	maze->rooms[maze->rooms_count].next = -1;
 	maze->rooms[maze->rooms_count].previous = -1;
-	maze->rooms[maze->rooms_count].path_id = -1;
 	n = 1;
 	(*i)++;
 	while (str[*i] && str[*i] != ' ')

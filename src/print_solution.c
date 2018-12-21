@@ -1,8 +1,21 @@
 #include "libft.h"
 #include "lemin.h"
-
-void	print_solution(t_maze *maze)
+/*
+static void	print(t_maze *maze, t_path *paths)
 {
-	//get paths
-	//dispatsh ants
+	size_t	i;
+
+	while (ants)
+	{
+
+	}
+}
+*/
+void		print_solution(t_maze *maze)
+{
+	t_path	*paths;
+
+	paths = get_paths(maze);
+	dispatsh_ants(maze, paths);
+	debug_paths(maze, paths);
 }

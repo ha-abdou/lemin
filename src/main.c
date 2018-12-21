@@ -1,6 +1,6 @@
 #include "libft.h"
 #include "lemin.h"
-
+/*
 void	debug_paths(t_maze *maze)
 {
 	size_t	i;
@@ -43,7 +43,7 @@ void	debug_paths(t_maze *maze)
 		i++;
 	}
 }
-
+*/
 int		main(void)
 {
 	char	*str;
@@ -54,7 +54,7 @@ int		main(void)
 	index_rooms(maze);
 	solve_maze(maze);
 	print_solution(maze);
-	debug_paths(maze);
+//	debug_paths(maze);
 /*	free_mem(str, maze);*/
 	return (0);
 }
