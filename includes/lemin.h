@@ -2,14 +2,14 @@
 # define LEMIN_H
 # define DEBUG 1
 # include <string.h>
+# include <stdio.h>
 
 typedef struct	s_q
 {
 	size_t	*indexs;
 	size_t	len;
-	size_t	value;//todo remove value from index function
+	size_t	value;
 }				t_q;
-
 typedef struct	s_room
 {
 	char	*name;
@@ -19,10 +19,9 @@ typedef struct	s_room
 	size_t	cons_len;
 	size_t	distence;
 	int		next;
-	int		previous;//todo remove if not used
-	size_t	path_id;
+	int		previous;
+	size_t	ant_id;
 }				t_room;
-
 typedef struct	s_maze
 {
 	t_room	*rooms;
@@ -30,8 +29,6 @@ typedef struct	s_maze
 	size_t	ants_count;
 	size_t	start_index;
 	size_t	end_index;
-//	size_t	paths_count;
-//	size_t	*paths_start;
 }				t_maze;
 /**
  * utility functions
@@ -59,6 +56,11 @@ void	make_cons(t_maze *maze, char *str, int i);
  */
 void	index_rooms(t_maze *maze);
 void	solve_maze(t_maze *maze);
+void	set_best_next(t_maze *maze, int index, t_q *q);
+void	create_solver_q(t_maze *maze, t_q *q, t_q *q_2);
+void	free_solver_q(t_q *q, t_q *q_2);
+void	sort_solver_q(t_maze *maze, t_q *q);
+void	solve(t_maze *maze, t_q *q, t_q *q_2);
 /**
  * debug functions
  */

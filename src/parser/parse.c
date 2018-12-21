@@ -1,12 +1,13 @@
 #include "libft.h"
 #include "lemin.h"
+#include <stdlib.h>
 
 t_maze	*parse(char *str)
 {
 	int		i;
 	t_maze	*maze;
 
-	if (!(maze = ((t_maze*)malloc(sizeof(t_maze)))))
+	if (!(maze = (t_maze*)malloc(sizeof(t_maze))))
 		throw(0, 0, "Error: cant malloc\n");
 	i = 0;
 	maze->rooms = 0;

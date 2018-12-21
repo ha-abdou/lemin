@@ -11,13 +11,13 @@ char	*read_maze()
 	char	*str;
 	char	*tmp;
 
-	if (!(buff = (char*)malloc(sizeof(char) * 256)))
+	if (!(buff = (char*)malloc(sizeof(char) * 5001)))
 		throw(0, 0, "Error: cant malloc\n");//todo error code
 	if (!(str = (char*)malloc(sizeof(char) * 1)))
 		throw(0, 0, "Error: cant malloc\n");//todo error code
 	buff[0] = '\0';
 	str[0] = '\0';
-	while ((n = read(0, buff, 255)))
+	while ((n = read(0, buff, 5000)))
 	{
 		if (n == -1)
 			throw(0, "Error\n", "Error: read return -1\n");//todo error code

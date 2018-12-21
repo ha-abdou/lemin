@@ -2,7 +2,7 @@ NAME		= lem-in
 LIBFT		= libft/libft.a
 CC			= gcc
 INC			= -I libft/includes -I includes
-FLAGS		= -Wall -Wextra $(INC)
+FLAGS		= -Wall -Wextra -g $(INC)
 
 OBJ			= src/main.o\
 src/functions/throw.o\
@@ -19,7 +19,10 @@ src/parser/malloc_cons.o\
 src/parser/count_cons.o\
 src/parser/make_cons.o\
 src/solver/solve_maze.o\
-src/solver/index_rooms.o
+src/solver/index_rooms.o\
+src/solver/set_best_next.o\
+src/solver/create_free_q.o\
+src/solver/sort_q.o
 
 $(NAME): $(OBJ) includes/lemin.h
 	@make -C libft/

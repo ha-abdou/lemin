@@ -15,10 +15,10 @@ void	debug_paths(t_maze *maze)
 		if (maze->rooms[con].next != -1)
 		{
 			len = 0;
-			printf("path %d:\n", i + 1);
+			printf("path %zu:\n", i + 1);
 			print_room_name(maze, maze->start_index);
 			ft_putstr("-->");
-			while (con != maze->end_index)
+			while (con != (int) maze->end_index)
 			{
 				if (con == -1)
 					break ;
@@ -49,15 +49,15 @@ int		main(void)
 	char	*str;
 	t_maze	*maze;
 
-	//read the file form std input
 	str = read_maze();
-	//parse the file
 	maze = parse(str);
-	ft_putchar('\n');
-	//index rooms
 	index_rooms(maze);
-	
-	//debud first rooms connected to start point
+	solve_maze(maze);
+	print_solution(maze);
+	debug_paths(maze);
+/*	free_mem(str, maze);*/
+	return (0);
+}
 /*	int	i = 0;
 	while (i < maze->rooms[maze->start_index].cons_len)
 	{
@@ -68,9 +68,3 @@ int		main(void)
 		ft_putchar('\n');
 		i++;
 	}*/
-	//solve the maze
-	solve_maze(maze);
-	debug_paths(maze);
-/*	free_mem(str, maze);*/
-	return (0);
-}

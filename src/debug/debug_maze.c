@@ -37,6 +37,7 @@ static void	debug_rooms(t_maze *maze)
 		i++;
 		ft_putstr("\n---------*---------");
 	}
+	ft_putchar('\n');
 }
 
 void		debug_maze(t_maze *maze)

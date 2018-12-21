@@ -3,7 +3,6 @@
 
 int		get_ants_count(char *str, int *i)
 {
-	ft_putstr(str);
 	while (ft_isdigit(str[*i]))
 		(*i)++;
 	if (str[*i] != '\n' || *i == 0)//todo review
