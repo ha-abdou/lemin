@@ -1,12 +1,11 @@
 #include "libft.h"
 #include "lemin.h"
-/*
-void	debug_paths(t_maze *maze)
+
+void	_debug_paths(t_maze *maze)
 {
 	size_t	i;
 	int		con;
 	int		len;
-
 	printf("ants count: %d\n", (int)maze->ants_count);
 	i = 0;
 	while (i < maze->rooms[maze->start_index].cons_len)
@@ -43,7 +42,7 @@ void	debug_paths(t_maze *maze)
 		i++;
 	}
 }
-*/
+
 int		main(void)
 {
 	char	*str;
@@ -53,18 +52,9 @@ int		main(void)
 	maze = parse(str);
 	index_rooms(maze);
 	solve_maze(maze);
+//	_debug_paths(maze);
 	print_solution(maze);
 //	debug_paths(maze);
 /*	free_mem(str, maze);*/
 	return (0);
 }
-/*	int	i = 0;
-	while (i < maze->rooms[maze->start_index].cons_len)
-	{
-		ft_putstr("room: ");
-		print_room_name(maze, maze->rooms[maze->start_index].cons[i]);
-		ft_putstr(" ,distence: ");
-		ft_putnbr(maze->rooms[maze->rooms[maze->start_index].cons[i]].distence);
-		ft_putchar('\n');
-		i++;
-	}*/

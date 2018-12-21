@@ -17,7 +17,7 @@ void	create_solver_q(t_maze *maze, t_q *q, t_q *q_2)
 	q->value = 1;
 	i = 0;
 	target = maze->rooms[maze->start_index];
-	while (q->len < target.cons_len)
+	while (i < target.cons_len)
 	{
 		if (maze->rooms[target.cons[i]].distence != 0)
 		{

@@ -1,4 +1,4 @@
-10
+5
 ##start
 start 0 0
 ##end
@@ -8,13 +8,10 @@ b 0 0
 c 0 0
 d 0 0
 e 0 0
-f 0 0
 start-a
 start-b
-a-d
+a-end
 b-c
-b-e
-c-f
+c-d
 d-e
 e-end
-f-end
