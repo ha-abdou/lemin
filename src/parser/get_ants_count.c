@@ -1,12 +1,23 @@
 #include "libft.h"
 #include "lemin.h"
+#include <stdlib.h>
 
-int		get_ants_count(char *str, int *i)
+void		set_ants_count(t_maze *maze, char *str, int *i)
 {
 	while (ft_isdigit(str[*i]))
 		(*i)++;
-	if (str[*i] != '\n' || *i == 0)//todo review
+	if (str[*i] != '\n' || *i == 0)
+	{
+		free(maze);
+		free(str);
 		throw(0, "Error: not valid ants number\n", 0);
+	}
 	(*i)++;
-	return (ft_atoi(str));
+	maze->ants_count = ft_atoi(str);
+	if (maze->ants_count <= 0)
+	{
+		free(maze);
+		free(str);
+		throw(0, "Error: not valid ants number\n", 0);
+	}
 }

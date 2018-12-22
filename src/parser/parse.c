@@ -13,7 +13,7 @@ t_maze	*parse(char *str)
 	maze->rooms = 0;
 	maze->start_index = 0;
 	maze->end_index = 0;
-	maze->ants_count = get_ants_count(str, &i);
+	set_ants_count(maze, str, &i);
 	get_rooms(maze, str, &i);
 	get_cons(maze, str, &i);
 	return (maze);

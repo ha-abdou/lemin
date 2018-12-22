@@ -43,6 +43,7 @@ typedef struct	s_maze
  */
 void	throw(int	error_code, char *msg, char *debug_msg);
 int		get_room_index(t_maze *maze, char *name, size_t len);
+void	free_mem(t_maze *maze, char *str);
 /**
  * read functions
  */
@@ -51,7 +52,7 @@ char	*read_maze();
  * parse functions
  */
 t_maze	*parse(char *str);
-int		get_ants_count(char *str, int *i);
+void	set_ants_count(t_maze *maze, char *str, int *i);
 void	get_rooms(t_maze *maze, char *str, int *i);
 void	next_line(char *str, int *i);
 void	malloc_rooms(t_maze *maze, char *str, int *i);

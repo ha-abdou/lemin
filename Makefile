@@ -7,6 +7,7 @@ FLAGS		= -Wall -Wextra -g $(INC)
 OBJ			= src/main.o\
 src/functions/throw.o\
 src/functions/get_room_index.o\
+src/functions/free_mem.o\
 src/debug/debug_maze.o\
 src/reader/read_maze.o\
 src/parser/parse.o\
@@ -23,7 +24,7 @@ src/solver/index_rooms.o\
 src/solver/set_best_next.o\
 src/solver/create_free_q.o\
 src/solver/sort_q.o\
-src/print_solution.o\
+src/print/print_solution.o\
 src/print/dispatcher.o\
 src/print/get_paths.o\
 src/print/debug_paths.o

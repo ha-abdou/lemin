@@ -1,7 +1,6 @@
 #include "libft.h"
 #include "lemin.h"
-
-//for all end cons go to start
+#include <stdlib.h>
 
 static void		move_ant_at(t_maze *maze, size_t room)
 {
@@ -25,12 +24,13 @@ static size_t	move_all(t_maze *maze)
 	while (i < maze->rooms[maze->end_index].cons_len)
 	{
 		room = maze->rooms[maze->end_index].cons[i];
-		while (maze->rooms[room].ant_id == 0 && room != maze->start_index &&
+		while (maze->rooms[room].ant_id == 0 &&\
+			room != (int)maze->start_index &&\
 			maze->rooms[room].previous != -1)
-			room = maze->rooms[room].previous;
-		if (maze->rooms[room].ant_id && room != maze->start_index)
+			room = (int)maze->rooms[room].previous;
+		if (maze->rooms[room].ant_id && room != (int)maze->start_index)
 		{
-			while (maze->rooms[room].ant_id && room != maze->start_index)
+			while (maze->rooms[room].ant_id && room != (int)maze->start_index)
 			{
 				move_ant_at(maze, room);
 				room = maze->rooms[room].previous;
@@ -81,4 +81,5 @@ void			print_solution(t_maze *maze)
 		i++;
 	}
 	printf("line count: %zu\n", i);
+	free(paths);
 }

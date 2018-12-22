@@ -4,7 +4,7 @@
 
 void	create_solver_q(t_maze *maze, t_q *q, t_q *q_2)
 {
-	int		i;
+	size_t	i;
 	t_room	target;
 
 	if (!(q->indexs = (size_t *)malloc(sizeof(size_t) *\
