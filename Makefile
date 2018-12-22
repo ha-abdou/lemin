@@ -35,19 +35,15 @@ $(NAME): $(OBJ) includes/lemin.h
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c includes/lemin.h
 	@$(CC) $(FLAGS) -c -o $@ $<
 
 clean:
-	/bin/rm -f *.o
-	/bin/rm -f */*.o
-	/bin/rm -f */*/*.o
-	/bin/rm -f */*/*/*.o
-	/bin/rm -f */*/*/*/*.o
+	rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
-
+	make fclean -C libft/
+	rm -f $(NAME)
 re: fclean all
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re

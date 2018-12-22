@@ -20,7 +20,11 @@ static void	index_it(t_maze *maze, t_q q, t_q q_2)
 			j = 0;
 			maze->rooms[q.indexs[i]].distence = q.value;
 			while (j < target.cons_len)
-				q_2.indexs[q_2.len++] = target.cons[j++];
+			{
+				if (q_2.len < maze->rooms_count && target.cons[j] < maze->rooms_count)
+					q_2.indexs[q_2.len++] = target.cons[j];
+				j++;
+			}
 		}
 		i++;
 	}
@@ -47,5 +51,6 @@ void		index_rooms(t_maze *maze)
 	}
 	q.value = 1;
 	index_it(maze, q, q_2);
-	free_solver_q(&q, &q_2);
+	free(q.indexs);
+	free(q_2.indexs);
 }
